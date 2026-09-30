@@ -17,7 +17,13 @@ FROM python:3.12-slim
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         ffmpeg \
-    && rm -rf /var/lib/apt/lists/*
+        curl \
+        unzip \
+    && rm -rf /var/lib/apt/lists/* \
+    && curl -fsSL https://github.com/denoland/deno/releases/latest/download/deno-x86_64-unknown-linux-gnu.zip -o /tmp/deno.zip \
+    && unzip /tmp/deno.zip -d /usr/local/bin \
+    && rm /tmp/deno.zip \
+    && deno --version
 
 WORKDIR /app
 

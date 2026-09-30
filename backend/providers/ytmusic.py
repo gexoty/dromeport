@@ -61,6 +61,7 @@ async def download_ytmusic_stream(
         "--ignore-errors",
         "--newline",
         "--no-colors",
+        "--js-runtimes", "deno",
         # Write the source URL into the file tags so enrichment can find the video ID
         "--add-metadata",
     ]
