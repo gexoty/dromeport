@@ -30,11 +30,15 @@ services:
     restart: unless-stopped
     volumes:
       - "/path/to/Music:/music" # same path, but writable (removed :ro)
+      # Optional: mount a Netscape-format cookies file for yt-dlp
+      # - "/path/to/cookies.txt:/config/cookies.txt:ro"
     environment:
       - DROMEPORT_LIBRARY_1=/music|My Music
       # Add more libraries like this:
       # - DROMEPORT_LIBRARY_2=/another_library|Another Library
 ```
+
+If `/config/cookies.txt` is mounted, Dromeport automatically passes it to yt-dlp. If the file is not present, downloads work exactly as before without cookies.
 
 ### 2. Start the frontend and backend
 ```bash

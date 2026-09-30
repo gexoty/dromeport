@@ -65,6 +65,12 @@ async def download_ytmusic_stream(
         "--add-metadata",
     ]
 
+    # Use an optional Netscape-format cookies file when mounted into the container.
+    # If the file is absent, yt-dlp behaves exactly as before.
+    cookies_path = "/config/cookies.txt"
+    if os.path.isfile(cookies_path):
+        command.extend(["--cookies", cookies_path])
+
     if not playlist:
         command.append("--no-playlist")
 
