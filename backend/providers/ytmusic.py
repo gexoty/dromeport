@@ -75,6 +75,9 @@ async def download_ytmusic_stream(
     if not playlist:
         command.append("--no-playlist")
 
+    # Preserve the existing per-format behavior. "best" lets yt-dlp keep the
+    # best available audio codec/container without unnecessary lossy re-encoding;
+    # FLAC uses yt-dlp/FFmpeg's native lossless output conversion.
     if audio_format == "mp3":
         command.extend(["--audio-quality", "0"])
 

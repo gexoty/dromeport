@@ -920,12 +920,18 @@ function App() {
                           <SelectValue />
                         </SelectTrigger>
                         <SelectContent>
+                          <SelectItem value="best">
+                            Best / Auto - preserve best available audio
+                          </SelectItem>
                           <SelectItem value="opus">
                             Opus - best quality, smallest size
                           </SelectItem>
                           <SelectItem value="m4a">M4A (AAC)</SelectItem>
                           <SelectItem value="mp3">
                             MP3 (VBR ~320 kbps)
+                          </SelectItem>
+                          <SelectItem value="flac">
+                            FLAC - lossless output
                           </SelectItem>
                         </SelectContent>
                       </Select>
